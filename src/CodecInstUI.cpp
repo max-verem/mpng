@@ -4,6 +4,8 @@
 #pragma comment(lib, "User32.Lib")
 #pragma comment(lib, "Shell32.Lib")
 
+#include <png.h>
+
 BOOL CodecInst::QueryAbout() { return TRUE; }
 
 static INT_PTR CALLBACK AboutDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -25,6 +27,11 @@ static INT_PTR CALLBACK AboutDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, 
                 break;
         }
     }
+    else if (uMsg == WM_INITDIALOG)
+    {
+        SetWindowText(GetDlgItem(hwndDlg, IDC_STATIC_VER1), PNG_LIBPNG_VER_STRING);
+        SetWindowText(GetDlgItem(hwndDlg, IDC_STATIC_VER2), ZLIB_VERSION);
+    };
     return FALSE;
 };
 

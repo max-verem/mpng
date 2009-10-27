@@ -98,16 +98,21 @@ END
 // Dialog
 //
 
-IDD_ABOUT DIALOG DISCARDABLE  0, 0, 167, 55
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 167, 92
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Motion PNG v1.0"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,131,34,29,14
-    CTEXT           "Motion PNG v1.0\nCopyright 2009 Maksym Veremeyenko",
-                    IDC_STATIC,7,7,153,25,SS_NOPREFIX
-    PUSHBUTTON      "Email author",IDC_EMAIL,7,34,50,14
-    PUSHBUTTON      "Visit home page",IDC_HOMEPAGE,59,34,58,14
+    DEFPUSHBUTTON   "OK",IDOK,131,54,29,14
+    CTEXT           "Motion PNG v1.0",IDC_STATIC,7,7,153,14,SS_NOPREFIX
+    PUSHBUTTON      "Email author",IDC_EMAIL,7,54,50,14
+    PUSHBUTTON      "Visit home page",IDC_HOMEPAGE,59,54,58,14
+    RTEXT           "libpng version:",IDC_STATIC,7,20,67,10,SS_NOPREFIX
+    RTEXT           "zlib version:",IDC_STATIC,7,32,67,10,SS_NOPREFIX
+    LTEXT           "<not set>",IDC_STATIC_VER1,93,21,67,10,SS_NOPREFIX
+    LTEXT           "<not set>",IDC_STATIC_VER2,93,31,67,10,SS_NOPREFIX
+    LTEXT           "Copyright 2009 Maksym Veremeyenko",IDC_STATIC,7,74,153,
+                    11,SS_NOPREFIX
 END
 
 IDD_CONFIGURE DIALOG DISCARDABLE  0, 0, 245, 54
@@ -137,7 +142,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 160
         TOPMARGIN, 7
-        BOTTOMMARGIN, 48
+        BOTTOMMARGIN, 85
     END
 
     IDD_CONFIGURE, DIALOG
