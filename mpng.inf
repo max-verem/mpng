@@ -1,0 +1,34 @@
+; Motion PNG install
+
+[Version]
+Signature="$CHICAGO$"
+Class=Media
+
+[DefaultInstall]
+CopyFiles=mpng.CopyFile
+UpdateInis=mpng.UpdateIni
+AddReg=mpng.AddReg
+MediaType=SOFTWARE
+
+[mpng.CopyFile]
+mpng.dll
+
+[mpng.UpdateIni]
+system.ini,drivers32,,"VIDC.MPNG=mpng.dll"
+
+[mpng.AddReg]
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.MPNG,Description,,%Description%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.MPNG,Driver,,"mpng.dll"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.MPNG,FriendlyName,,%Description%
+
+[DestinationDirs]
+DefaultDestDir=11	; windows\system
+
+[SourceDisksNames]
+1="MotionPNG","",1
+
+[SourceDisksFiles]
+mpng.dll=1
+
+[Strings]
+Description="Motion PNG codec [MPNG]"
