@@ -6,11 +6,21 @@
 #include <png.h>
 
 #ifdef _DEBUG
-#pragma comment(lib, "Win32_LIB_ASM_Debug-libpngd.lib")
-#pragma comment(lib, "Win32_LIB_ASM_Debug-zlibd.lib")
+	#ifdef _M_X64
+		#pragma comment(lib, "Win64_LIB_ASM_Debug-libpngd.lib")
+		#pragma comment(lib, "Win64_LIB_ASM_Debug-zlibd.lib")
+	#else
+		#pragma comment(lib, "Win32_LIB_ASM_Debug-libpngd.lib")
+		#pragma comment(lib, "Win32_LIB_ASM_Debug-zlibd.lib")
+	#endif /* _M_X64 */
 #else
-#pragma comment(lib, "Win32_LIB_ASM_Release-libpng.lib")
-#pragma comment(lib, "Win32_LIB_ASM_Release-zlib.lib")
+	#ifdef _M_X64
+		#pragma comment(lib, "Win64_LIB_ASM_Release-libpng.lib")
+		#pragma comment(lib, "Win64_LIB_ASM_Release-zlib.lib")
+	#else
+		#pragma comment(lib, "Win32_LIB_ASM_Release-libpng.lib")
+		#pragma comment(lib, "Win32_LIB_ASM_Release-zlib.lib")
+	#endif /* _M_X64 */
 #endif
 
 #pragma comment(lib, "WinMM.Lib")
