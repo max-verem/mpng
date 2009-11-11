@@ -219,7 +219,7 @@ DWORD CodecInst::Compress(ICCOMPRESS* icinfo, DWORD dwSize)
     png_destroy_write_struct(&png_ptr, &info_ptr);
 
     /* setup compressed inmage size */
-    icinfo->lpbiOutput->biSizeImage = (unsigned char*)buf - (unsigned char*)icinfo->lpOutput;
+    icinfo->lpbiOutput->biSizeImage = (DWORD)((unsigned char*)buf - (unsigned char*)icinfo->lpOutput);
     if (icinfo->lpckid)
         *icinfo->lpckid = FOURCC_MPNG;
     *icinfo->lpdwFlags = AVIIF_KEYFRAME;

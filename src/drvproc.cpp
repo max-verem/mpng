@@ -49,14 +49,14 @@
  ***************************************************************************/
 LRESULT PASCAL DriverProc
 (
-    DWORD dwDriverID,
+    DWORD_PTR dwDriverID,
     HDRVR hDriver,
     UINT uiMessage,
     LPARAM lParam1,
     LPARAM lParam2
 )
 {
-    CodecInst* pi = (CodecInst*)(UINT)dwDriverID;
+    CodecInst* pi = (CodecInst*)dwDriverID;
     switch (uiMessage)
     {
         case DRV_LOAD:
@@ -67,7 +67,7 @@ LRESULT PASCAL DriverProc
 
         case DRV_OPEN:
             // GAAH! This used to return a pointer to 0xFFFF0000 when lParam==0!
-            return (LRESULT)(DWORD)(UINT) Open((ICOPEN*) lParam2);
+            return (LRESULT) /*(DWORD)(UINT)*/ Open((ICOPEN*) lParam2);
 
         case DRV_CLOSE:
             if (pi) Close(pi);

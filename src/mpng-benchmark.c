@@ -6,21 +6,11 @@
 #include <png.h>
 
 #ifdef _DEBUG
-	#ifdef _M_X64
-		#pragma comment(lib, "Win64_LIB_ASM_Debug-libpngd.lib")
-		#pragma comment(lib, "Win64_LIB_ASM_Debug-zlibd.lib")
-	#else
-		#pragma comment(lib, "Win32_LIB_ASM_Debug-libpngd.lib")
-		#pragma comment(lib, "Win32_LIB_ASM_Debug-zlibd.lib")
-	#endif /* _M_X64 */
+	#pragma comment(lib, "libpngd.lib")
+	#pragma comment(lib, "zlibd.lib")
 #else
-	#ifdef _M_X64
-		#pragma comment(lib, "Win64_LIB_ASM_Release-libpng.lib")
-		#pragma comment(lib, "Win64_LIB_ASM_Release-zlib.lib")
-	#else
-		#pragma comment(lib, "Win32_LIB_ASM_Release-libpng.lib")
-		#pragma comment(lib, "Win32_LIB_ASM_Release-zlib.lib")
-	#endif /* _M_X64 */
+	#pragma comment(lib, "libpng.lib")
+	#pragma comment(lib, "zlib.lib")
 #endif
 
 #pragma comment(lib, "WinMM.Lib")
@@ -71,7 +61,8 @@ int decode_png_frame(void* src_buf)
     png_uint_32 w, h;
     int bd, ct;
     void* buf;
-    int line_size, i;
+    int line_size;
+    unsigned int i;
     unsigned char** rows;
 
     /* Allocate the png read struct */
