@@ -19,7 +19,7 @@ static INT_PTR CALLBACK AboutDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, 
             break;
 
             case IDC_HOMEPAGE:
-                ShellExecute(NULL, NULL, "http://research.m1stereo.tv/Mpng", NULL, NULL, SW_SHOW);
+                ShellExecute(NULL, NULL, "http://research.m1stereo.tv/wiki/index.php/Mpng", NULL, NULL, SW_SHOW);
                 break;
 
             case IDC_EMAIL:
